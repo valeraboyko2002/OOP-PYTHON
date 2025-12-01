@@ -119,59 +119,59 @@ print(f"Email отдела: {department.adress()}")  # IT Department@github.com
 
 ```python
 class BankAccount:
-    """Класс банковского счета с защитой данных"""
+    """банковский счет с защитой данных"""
     def __init__(self, account_holder, initial_balance=0):
         self.account_holder = account_holder
         self.__balance = initial_balance
         self.__transactions = []
     
     def deposit(self, amount):
-        """Пополнение счета"""
+        """пополнение счета"""
         if amount <= 0:
-            raise ValueError("Сумма должна быть положительной")
+            raise ValueError("сумма должна быть положительной")
         self.__balance += amount
-        self.__transactions.append(f"Пополнение: +{amount}")
-        return f"Пополнено {amount}. Баланс: {self.__balance}"
+        self.__transactions.append(f"пополнение: +{amount}")
+        return f"пополнено {amount}. баланс: {self.__balance}"
     
     def withdraw(self, amount):
-        """Снятие со счета"""
+        """снятие со счета"""
         if amount <= 0:
-            raise ValueError("Сумма должна быть положительной")
+            raise ValueError("сумма должна быть положительной")
         if amount > self.__balance:
-            raise ValueError("Недостаточно средств")
+            raise ValueError("недостаточно средств")
         self.__balance -= amount
-        self.__transactions.append(f"Снятие: -{amount}")
-        return f"Снято {amount}. Баланс: {self.__balance}"
+        self.__transactions.append(f"снятие: -{amount}")
+        return f"снято {amount}. ьаланс: {self.__balance}"
     
     @property
     def balance(self):
-        """Текущий баланс (только чтение)"""
+        """текущий баланс (только чтение)"""
         return self.__balance
     
     def get_transactions(self):
-        """История операций (защищенная копия)"""
+        """история операций (защищенная копия)"""
         return self.__transactions.copy()
 ```
 
 **Пример использования:**
 ```python
-# Создание счета
+# создание счета
 account = BankAccount("Иван Иванов", 1000)
 
-# Операции со счетом
-print(account.deposit(500))    # Пополнено 500. Баланс: 1500
-print(account.withdraw(200))   # Снято 200. Баланс: 1300
-print(f"Текущий баланс: {account.balance}")
+# пперации со счетом
+print(account.deposit(500))    # пополнено 500. баланс: 1500
+print(account.withdraw(200))   # снято 200. баланс: 1300
+print(f"текущий баланс: {account.balance}")
 
 # Просмотр истории
 history = account.get_transactions()
-print(f"История операций: {history}")
+print(f"история операций: {history}")
 
-# Обработка ошибок
+# обработка ошибок
 try:
-    account.withdraw(5000)  # Ошибка: недостаточно средств
+    account.withdraw(5000)  # ошибка, недостаточно средств
 except ValueError as e:
-    print(f"Ошибка: {e}")
+    print(f"ошибка: {e}")
 ```
 
 ## 🏗️ Демонстрируемые концепции ООП
@@ -191,7 +191,7 @@ except ValueError as e:
 ### Работа с TypedList
 
 ```python
-# Создание различных типизированных списков
+
 names = TypedList(str)
 names.append("Алиса")
 names.append("Боб")
@@ -200,7 +200,6 @@ ages = TypedList(int)
 ages.append(25)
 ages.append(30)
 
-# Использование с пользовательскими типами
 class Product:
     def __init__(self, name, price):
         self.name = name
@@ -214,10 +213,10 @@ products.append(Product("Мышь", 50))
 ### Продвинутое использование BankAccount
 
 ```python
-# Создание семейного счета
+# новый счет
 family_account = BankAccount("Семья Ивановых", 5000)
 
-# Симуляция месячных операций
+# симуляция месячных операций
 operations = [
     ("deposit", 30000),    # Зарплата
     ("withdraw", 15000),   # Ипотека
