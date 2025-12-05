@@ -197,12 +197,6 @@ class Employee(Person, TagMixin):
 
     def __init__(self, name):
         Person.__init__(self, name)
-
-
-
-ivan = Employee("Иван Иванович Иванов")
-tag_ivan = ivan.tag()
-print(tag_ivan)
 ```
 
 **Пример использования:**
